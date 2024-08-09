@@ -355,7 +355,7 @@ window.Spicetify = {
 
 	const _cosmos = Spicetify.Player.origin?._cosmos ?? Spicetify.Platform?.Registry.resolve(Symbol.for("Cosmos"));
 
-	const corsProxyURL = "https://cors-proxy.spicetify.app";
+	const corsProxyURL = Spicetify.Config.cors_proxy_url;
 	const allowedMethodsMap = {
 		get: "get",
 		post: "post",

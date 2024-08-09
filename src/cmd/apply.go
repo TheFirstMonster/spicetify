@@ -77,6 +77,7 @@ func Apply(spicetifyVersion string) {
 		HomeConfig:           featureSection.Key("home_config").MustBool(false),
 		ExpFeatures:          featureSection.Key("experimental_features").MustBool(false),
 		SpicetifyVer:         backupSection.Key("with").MustString(""),
+		CorsProxyURL:         featureSection.Key("cors_proxy_url").MustString("https://cors-proxy.spicetify.app"),
 	})
 	utils.PrintGreen("OK")
 

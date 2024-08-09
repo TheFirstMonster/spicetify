@@ -37,6 +37,7 @@ var (
 			"sidebar_config":        "1",
 			"home_config":           "1",
 			"experimental_features": "1",
+			"cors_proxy_url":        "https://cors-proxy.spicetify.app",
 		},
 		"Patch": {},
 	}

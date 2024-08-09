@@ -23,6 +23,8 @@ func EditConfig(args []string) {
 			continue
 		case "prefs_path", "spotify_path", "current_theme", "color_scheme":
 			stringType(settingSection, field, value)
+		case "cors_proxy_url":
+			stringType(featureSection, field, value)
 
 		default:
 			toggleType(field, value)

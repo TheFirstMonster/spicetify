@@ -36,6 +36,7 @@ var (
 	injectJS                bool
 	replaceColors           bool
 	overwriteAssets         bool
+	CorsProxyUrl            string
 )
 
 // InitConfig gets and parses config file.

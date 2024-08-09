@@ -22,6 +22,7 @@ type Flag struct {
 	ExpFeatures          bool
 	SpicetifyVer         string
 	SpotifyVer           string
+	CorsProxyURL         string
 }
 
 // AdditionalOptions .
@@ -130,8 +131,9 @@ func htmlMod(htmlPath string, flags Flag) {
 			Spicetify.Config["extensions"] = [%s];
 			Spicetify.Config["custom_apps"] = [%s];
 			Spicetify.Config["check_spicetify_update"]=%v;
+			Spicetify.Config["cors_proxy_url"] = "%s";
 		</script>
-		`, flags.SpicetifyVer, flags.CurrentTheme, flags.ColorScheme, extList, customAppList, flags.CheckSpicetifyUpdate)
+		`, flags.SpicetifyVer, flags.CurrentTheme, flags.ColorScheme, extList, customAppList, flags.CheckSpicetifyUpdate, flags.CorsProxyURL)
 	}
 
 	for _, v := range flags.Extension {

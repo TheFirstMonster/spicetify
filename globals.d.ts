@@ -1888,6 +1888,7 @@ declare namespace Spicetify {
 		const color_scheme: string;
 		const extensions: string[];
 		const custom_apps: string[];
+		const cors_proxy_url: string;
 	}
 
 	/**

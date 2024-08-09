@@ -530,5 +530,8 @@ home_config <0 | 1>
 
 sidebar_config <0 | 1>
     Enable ability to stick, hide, re-arrange sidebar items.
-    Turn "Sidebar config" mode on in Profile menu and hover on sidebar items to show customization buttons.`)
+    Turn "Sidebar config" mode on in Profile menu and hover on sidebar items to show customization buttons.
+
+cors_proxy_url <string>
+    HTTP URL of the proxy server used to bypass CORS policy.`)
 }
