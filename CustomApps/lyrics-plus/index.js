@@ -78,7 +78,7 @@ const CONFIG = {
 			modes: [SYNCED, UNSYNCED],
 		},
 		genius: {
-			on: spotifyVersion >= "1.2.31" ? false : getConfig("lyrics-plus:provider:genius:on"),
+			on: getConfig("lyrics-plus:provider:genius:on"),
 			desc: "Provide unsynced lyrics with insights from artists themselves. Genius is disabled and cannot be used as a provider on <code>1.2.31</code> and higher.",
 			modes: [GENIUS],
 		},
@@ -243,7 +243,6 @@ class LyricsContainer extends react.Component {
 		let finalData = { ...emptyState, uri: trackInfo.uri };
 		for (const id of CONFIG.providersOrder) {
 			const service = CONFIG.providers[id];
-			if (spotifyVersion >= "1.2.31" && id === "genius") continue;
 			if (!service.on) continue;
 			if (mode !== -1 && !service.modes.includes(mode)) continue;
 
