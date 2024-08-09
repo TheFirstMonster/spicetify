@@ -354,7 +354,7 @@ window.Spicetify = {
 	}
 
 	const _cosmos = Spicetify.Player.origin?._cosmos ?? Spicetify.Platform?.Registry.resolve(Symbol.for("Cosmos"));
-
+	
 	const corsProxyURL = Spicetify.Config.cors_proxy_url;
 	const allowedMethodsMap = {
 		get: "get",
@@ -417,16 +417,12 @@ window.Spicetify = {
 				Object.assign(options.headers, injectedHeaders);
 
 				try {
-					return fetch(finalURL, options).then((res) => {
+					return fetch(finalURL, options).then(async (res) => {
 						if (!res.ok) return { code: res.status, error: res.statusText, message: "Failed to fetch", stack: undefined };
 						try {
-							return res.clone().json();
+							return await res.clone().json();
 						} catch {
-							try {
-								return res.clone().blob();
-							} catch {
-								return res.clone().text();
-							}
+							return await res.clone().text();
 						}
 					});
 				} catch (e) {

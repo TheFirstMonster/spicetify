@@ -48,19 +48,7 @@ const ProviderGenius = (() => {
 	}
 
 	function fetchHTML(url) {
-		return new Promise((resolve, reject) => {
-			const request = JSON.stringify({
-				method: "GET",
-				uri: url,
-			});
-
-			window.sendCosmosRequest({
-				request,
-				persistent: false,
-				onSuccess: resolve,
-				onFailure: reject,
-			});
-		});
+		return Spicetify.CosmosAsync.get(url);
 	}
 
 	async function fetchLyricsVersion(results, index) {
@@ -70,8 +58,7 @@ const ProviderGenius = (() => {
 			return;
 		}
 
-		const site = await fetchHTML(result.url);
-		const body = JSON.parse(site)?.body;
+		const body = await fetchHTML(result.url);
 		if (!body) {
 			return null;
 		}
